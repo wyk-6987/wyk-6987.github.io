@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 适配移动端 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的简单网页</title>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Arial", "微软雅黑", sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 容器样式 */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        /* 头部样式 */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* 内容区域样式 */
+        .content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #2563eb;
+        }
+
+        .profile-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .profile-info p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        /* 按钮样式 */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* 列表样式 */
+        .hobby-list {
+            margin: 20px 0;
+        }
+
+        .hobby-list h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #2563eb;
+        }
+
+        .hobby-list ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hobby-list li {
+            background-color: #e0e7ff;
+            color: #2563eb;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        /* 底部样式 */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* 弹窗样式（用于交互示例） */
+        .modal {
+            display: none; /* 默认隐藏 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 20px;
+            color: #2563eb;
+        }
+
+        /* 响应式适配（手机端） */
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header>
+            <h1>欢迎来到我的网页</h1>
+            <p>一个简单的HTML示例 · 包含样式和交互</p>
+        </header>
+
+        <!-- 主要内容 -->
+        <div class="content">
+            <!-- 个人信息 -->
+            <div class="profile">
+                <!-- 示例图片（可替换为自己的图片地址） -->
+                <img src="https://picsum.photos/seed/avatar/200/200" alt="个人头像" class="profile-img">
+                <div class="profile-info">
+                    <h2>小明</h2>
+                    <p>前端初学者 · 热爱技术 · 乐于分享</p>
+                    <button class="btn" id="showModalBtn">点击打招呼</button>
+                </div>
+            </div>
+
+            <!-- 兴趣爱好 -->
+            <div class="hobby-list">
+                <h3>我的兴趣爱好</h3>
+                <ul>
+                    <li>编程</li>
+                    <li>阅读</li>
+                    <li>运动</li>
+                    <li>旅行</li>
+                    <li>摄影</li>
+                </ul>
+            </div>
+
+            <!-- 简单介绍 -->
+            <div class="intro">
+                <h3>关于这个网页</h3>
+                <p>这是一个纯HTML+CSS+JS实现的简单网页，包含以下功能：</p>
+                <ul style="margin-left: 20px; margin-top: 10px; color: #666;">
+                    <li>响应式设计（适配电脑和手机）</li>
+                    <li>基础动画效果（按钮hover、弹窗）</li>
+                    <li>简单交互逻辑（点击按钮显示弹窗）</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <footer>
+            <p>© 2024 我的简单网页 · 版权所有</p>
+        </footer>
+    </div>
+
+    <!-- 弹窗（交互示例） -->
+    <div class="modal" id="greetingModal">
+        <div class="modal-content">
+            <h3>你好呀！👋</h3>
+            <p>欢迎访问我的简单网页～</p>
+            <button class="btn" id="closeModalBtn" style="margin-top: 20px;">关闭</button>
+        </div>
+    </div>
+
+    <script>
+        // 简单交互：弹窗控制
+        const showModalBtn = document.getElementById('showModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('greetingModal');
+
+        // 点击显示弹窗
+        showModalBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+
+        // 点击关闭弹窗
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // 点击弹窗外部关闭
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
